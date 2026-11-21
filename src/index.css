@@ -180,17 +180,22 @@ input, select, textarea { font-family: inherit; }
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
   transition: var(--transition-fast);
+  margin-right: 12px;
 }
-.logo:hover { opacity: 0.9; }
+.logo:hover { opacity: 0.88; }
 .logo-img {
-  height: 44px;
+  height: 38px;
   width: auto;
-  max-width: 175px;
+  max-width: 165px;
   object-fit: contain;
   display: block;
+}
+.logo-fallback-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .logo-icon { flex-shrink: 0; }
 .logo-text {
@@ -200,7 +205,7 @@ input, select, textarea { font-family: inherit; }
 }
 .logo-name {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--primary);
   line-height: 1.2;
@@ -211,35 +216,22 @@ input, select, textarea { font-family: inherit; }
   font-weight: 500;
   letter-spacing: 0.03em;
 }
-.header-nabh {
-  display: flex;
-  align-items: center;
-  padding: 2px 8px;
-  background: rgba(14, 165, 233, 0.06);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(14, 165, 233, 0.2);
-}
-.nabh-badge-img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
 
 /* Nav links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 0.86rem;
   font-weight: 500;
   color: var(--text-dark);
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
   transition: var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 .nav-link::after {
   content: '';
@@ -1376,6 +1368,18 @@ input, select, textarea { font-family: inherit; }
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  opacity: 1 !important;
+  animation: doctorCardIn 0.3s ease-out forwards;
+}
+@keyframes doctorCardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.filter-count {
+  font-size: 0.78rem;
+  opacity: 0.85;
+  margin-left: 3px;
+  font-weight: 600;
 }
 .doctor-official-card:hover {
   transform: translateY(-6px);
