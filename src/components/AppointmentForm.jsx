@@ -171,11 +171,15 @@ export default function AppointmentForm() {
 
           {/* Form Column */}
           <div className="form-wrapper reveal">
-            <div className="demo-banner">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-              </svg>
-              <strong>Frontend Demo Form</strong> &mdash; This is an interactive assessment prototype. In production, this connects to the hospital's secure HMIS/OPD portal.
+            <div className="form-portal-header">
+              <div className="portal-badge">
+                <span className="portal-dot"></span>
+                <span>Online Appointment Desk</span>
+              </div>
+              <p className="portal-subtext">
+                Please complete the patient details below. For urgent eye trauma, please call our 24×7 casualty directly at{' '}
+                <a href="tel:+918362228222" className="portal-tel-link">0836-2228222</a>.
+              </p>
             </div>
 
             {!submittedRef ? (
@@ -334,6 +338,10 @@ export default function AppointmentForm() {
                   </svg>
                   {isSubmitting ? 'Submitting Enquiry…' : 'Submit Appointment Request'}
                 </button>
+
+                <p className="form-disclaimer-note">
+                  *Demonstration prototype: Form responses are verified with instant simulated confirmation. In live production, this connects to the hospital's central HMIS.
+                </p>
               </form>
             ) : (
               <div className="form-success" id="formSuccess" style={{ display: 'flex' }}>
