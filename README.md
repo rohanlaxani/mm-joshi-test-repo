@@ -5,7 +5,7 @@
 [![Node](https://img.shields.io/badge/Node.js-v18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A modern, high-performance, fully responsive single-page application built for **M. M. Joshi Eye Institute (Padma Nayanalaya)** — Karnataka's premier ophthalmic super-specialty hospital in Hubballi, serving patients since 1987.
+A modern, high-performance, fully responsive single-page application built for **M. M. Joshi Eye Institute (Padma Nayanalaya)** — Karnataka's premier ophthalmic super-specialty hospital in Hubballi, serving patients since 1967.
 
 Converted into a modern **React + Vite** component-based architecture with **100% exact UI fidelity** and **rigorous mobile and tablet responsiveness**.
 
