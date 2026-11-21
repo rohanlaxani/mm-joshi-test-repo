@@ -155,11 +155,9 @@ const LOCATIONS_DATA = [
 ];
 
 export default function Locations() {
-  const [activeBranchId, setActiveBranchId] = useState('eyesiri');
+  const [activeBranchId, setActiveBranchId] = useState(null);
   const [filterRegion, setFilterRegion] = useState('all');
   const [copiedId, setCopiedId] = useState(null);
-  const [isMapCollapsed, setIsMapCollapsed] = useState(false);
-  const [inlineMapBranchId, setInlineMapBranchId] = useState(null);
 
   const filteredBranches =
     filterRegion === 'all'
@@ -168,7 +166,6 @@ export default function Locations() {
 
   const activeBranch =
     LOCATIONS_DATA.find((b) => b.id === activeBranchId) ||
-    LOCATIONS_DATA.find((b) => b.id === 'eyesiri') ||
     LOCATIONS_DATA[0];
 
   const handleCopy = (id, text) => {
@@ -180,7 +177,6 @@ export default function Locations() {
   };
 
   const toggleBranch = (id) => {
-    // Collapsible accordion: clicking already open item collapses it
     setActiveBranchId((prev) => (prev === id ? null : id));
   };
 
@@ -199,7 +195,7 @@ export default function Locations() {
 
         {/* Clean, Intuitive Two-Column Layout */}
         <div className="locations-clean-layout reveal">
-          {/* Left Column: Scrollable List Matched to Map Height */}
+          {/* Left Column: Clean Full List matching user screenshot */}
           <div className="locations-sidebar">
             {/* Region Filter Tabs */}
             <div className="region-filter-tabs">
@@ -230,13 +226,12 @@ export default function Locations() {
             <div className="branch-accordion-list">
               {filteredBranches.map((branch) => {
                 const isOpen = branch.id === activeBranchId;
-                const isInlineMapOpen = inlineMapBranchId === branch.id;
                 return (
                   <div
                     key={branch.id}
                     className={`branch-accordion-item ${isOpen ? 'open' : ''}`}
                   >
-                    {/* Header Row (Always Clickable & Collapsible) */}
+                    {/* Header Row (Click to toggle details inline) */}
                     <button
                       type="button"
                       className="accordion-header-btn"
@@ -361,34 +356,7 @@ export default function Locations() {
                             </svg>
                             Call Hospital
                           </a>
-                          <button
-                            type="button"
-                            className="btn btn-outline-map"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setInlineMapBranchId((prev) =>
-                                prev === branch.id ? null : branch.id
-                              );
-                            }}
-                          >
-                            {isInlineMapOpen ? '▴ Hide Inline Map' : '🗺️ Inline Map'}
-                          </button>
                         </div>
-
-                        {/* Collapsible Inline Mini Map */}
-                        {isInlineMapOpen && (
-                          <div className="inline-map-container">
-                            <iframe
-                              key={`inline-${branch.id}`}
-                              title={`Inline map for ${branch.name}`}
-                              src={branch.mapUrl}
-                              className="inline-map-iframe"
-                              loading="lazy"
-                              allowFullScreen=""
-                              referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-                          </div>
-                        )}
                       </div>
                     )}
                   </div>
@@ -397,93 +365,25 @@ export default function Locations() {
             </div>
           </div>
 
-          {/* Right Column: Clean Sticky Map with Collapsible Toggle */}
-          <div className={`locations-map-wrapper ${isMapCollapsed ? 'map-is-collapsed' : ''}`}>
-            <div className={`map-clean-frame ${isMapCollapsed ? 'collapsed' : ''}`}>
+          {/* Right Column: Clean Sticky Map */}
+          <div className="locations-map-wrapper">
+            <div className="map-clean-frame">
               <div className="map-pinned-tag">
-                <div className="pinned-info">
-                  <span className="pinned-dot"></span>
-                  <span className="pinned-text">
-                    Pinned: <strong>{activeBranch.name}</strong>
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  className="map-collapse-toggle-btn"
-                  onClick={() => setIsMapCollapsed((prev) => !prev)}
-                  title={isMapCollapsed ? 'Expand Map View' : 'Collapse Map View'}
-                  aria-label={isMapCollapsed ? 'Expand Map View' : 'Collapse Map View'}
-                >
-                  {isMapCollapsed ? (
-                    <>
-                      <span>🗺️ Show Map</span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="14"
-                        height="14"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      <span>Collapse Map</span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="14"
-                        height="14"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path d="M5 15l7-7 7 7" />
-                      </svg>
-                    </>
-                  )}
-                </button>
+                <span className="pinned-dot"></span>
+                <span className="pinned-text">
+                  Pinned: <strong>{activeBranch.name}</strong>
+                </span>
               </div>
 
-              {!isMapCollapsed ? (
-                <iframe
-                  key={activeBranch.id}
-                  title={`Map for ${activeBranch.name}`}
-                  src={activeBranch.mapUrl}
-                  className="clean-map-iframe"
-                  loading="lazy"
-                  allowFullScreen=""
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              ) : (
-                <div className="map-collapsed-placeholder">
-                  <div className="collapsed-content">
-                    <span className="collapsed-icon">🗺️</span>
-                    <div>
-                      <strong>Interactive Map Collapsed</strong>
-                      <p>{activeBranch.address}</p>
-                    </div>
-                  </div>
-                  <div className="collapsed-actions">
-                    <button
-                      type="button"
-                      className="btn btn-primary btn-sm"
-                      onClick={() => setIsMapCollapsed(false)}
-                    >
-                      Show Interactive Map
-                    </button>
-                    <a
-                      href={activeBranch.directMapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline btn-sm"
-                    >
-                      Open in Google Maps ↗
-                    </a>
-                  </div>
-                </div>
-              )}
+              <iframe
+                key={activeBranch.id}
+                title={`Map for ${activeBranch.name}`}
+                src={activeBranch.mapUrl}
+                className="clean-map-iframe"
+                loading="lazy"
+                allowFullScreen=""
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>

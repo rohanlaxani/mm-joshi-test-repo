@@ -15,9 +15,10 @@ export default function Hero() {
 
   return (
     <section className="hero" id="home">
-      <div className="hero-bg">
-        <div className="hero-gradient"></div>
-        <div className="hero-radial"></div>
+      {/* Background Image of Leadership Team with Gradient Overlay */}
+      <div className="hero-bg" aria-hidden="true">
+        <div className="hero-overlay"></div>
+        <div className="hero-overlay-tint"></div>
       </div>
 
       <div className="container hero-content">
@@ -86,27 +87,11 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Refined Hero Visual: Authentic Leadership Team Photo */}
-        <div className="hero-visual">
-          <div className="hero-image-card">
-            <div className="hero-image-tag">
-              <span className="tag-dot"></span>
-              Padma Nayanalaya Leadership
-            </div>
-            <img
-              src="/assets/mm-joshi-founders-team.png"
-              alt="Padma Shri Dr. M. M. Joshi seated with chief ophthalmic directors and surgeons"
-              className="hero-team-img"
-              loading="eager"
-              fetchPriority="high"
-            />
-            <div className="hero-image-caption">
-              <div className="caption-title">Padma Shri Dr. M. M. Joshi &amp; Medical Directors</div>
-              <div className="caption-sub">55+ Years of Ophthalmic Microsurgery &amp; Postgraduate DNB Training</div>
-            </div>
-          </div>
-        </div>
+      {/* Subtle Attribution Pill for the Leadership Visual */}
+      <div className="hero-photo-tag" aria-hidden="true">
+        <span>🏥 <strong>Padma Nayanalaya:</strong> Founder Padma Shri Dr. M. M. Joshi &amp; Chief Directors</span>
       </div>
 
       <div className="hero-wave" aria-hidden="true">
