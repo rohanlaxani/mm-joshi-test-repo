@@ -1,74 +1,160 @@
+import { useState } from 'react';
+
 const DOCTORS_DATA = [
   {
-    initials: 'RS',
-    gradient: 'linear-gradient(135deg, #1a4fa0, #0ea5e9)',
-    name: 'Dr. Rohit M. Shetty',
-    specialty: 'Senior Vitreoretinal Surgeon',
-    desc: 'Fellowship trained vitreoretinal expert specializing in complex retinal detachments, diabetic retinopathy and macular disorders.',
-    tags: ['Retina', 'Vitreous', 'Diabetic Eye'],
+    id: 'dr-guruprasad',
+    name: 'Dr Guruprasad S.Ayachit',
+    img: '/assets/dr-guruprasad.jpg',
+    specialty: 'Vitreoretinal Services',
+    department: 'Retina',
   },
   {
-    initials: 'SN',
-    gradient: 'linear-gradient(135deg, #7c3aed, #c026d3)',
-    name: 'Dr. Supriya R. Nayak',
-    specialty: 'Cornea & Refractive Surgery',
-    desc: 'Expert in corneal transplantation, keratoconus management and advanced laser refractive procedures including LASIK and SMILE.',
-    tags: ['Cornea', 'LASIK', 'Keratoconus'],
+    id: 'dr-satyamurthy',
+    name: 'Dr K.V.Satyamurthy',
+    img: '/assets/dr-satyamurthy.jpg',
+    specialty: 'HOD Cornea and Refractive Surgery',
+    department: 'Cornea',
   },
   {
-    initials: 'AK',
-    gradient: 'linear-gradient(135deg, #059669, #0ea5e9)',
-    name: 'Dr. Anil Kumar Patil',
-    specialty: 'Cataract & Glaucoma Specialist',
-    desc: 'Highly experienced in phacoemulsification cataract surgery and comprehensive glaucoma management including surgical interventions.',
-    tags: ['Cataract', 'Glaucoma', 'IOL'],
+    id: 'dr-krishnaprasad',
+    name: 'Dr. R. Krishnaprasad',
+    img: '/assets/dr-krishnaprasad.jpg',
+    specialty: 'Pediatric Ophthalmology and Glaucoma Specialist',
+    department: 'Pediatric',
   },
   {
-    initials: 'MJ',
-    gradient: 'linear-gradient(135deg, #dc2626, #f59e0b)',
-    name: 'Dr. Meena Jadhav',
-    specialty: 'Paediatric Ophthalmology',
-    desc: 'Dedicated paediatric ophthalmologist specializing in amblyopia, strabismus, childhood glaucoma and developmental eye conditions.',
-    tags: ['Paediatrics', 'Squint', 'Amblyopia'],
+    id: 'dr-shrinivas-joshi',
+    name: 'Dr. Srinivas Joshi',
+    img: '/assets/dr-shrinivas-joshi.jpg',
+    specialty: 'Vitreoretinal Specialist',
+    department: 'Retina',
   },
   {
-    initials: 'VK',
-    gradient: 'linear-gradient(135deg, #0f172a, #1a4fa0)',
-    name: 'Dr. Vijay Kulkarni',
-    specialty: 'Oculoplasty & Orbital Surgery',
-    desc: 'Specialist in aesthetic and reconstructive eyelid surgeries, orbital tumors and lacrimal system disorders.',
-    tags: ['Oculoplasty', 'Orbital', 'Aesthetic'],
+    id: 'dr-deepti-joshi',
+    name: 'Dr Deepti Joshi',
+    img: '/assets/dr-deepti-joshi.png',
+    specialty: 'Pediatric Ophthalmology & Squint Specialist',
+    department: 'Pediatric',
+  },
+  {
+    id: 'dr-vijayalaxmi-kori',
+    name: 'Dr Vijayalaxmi Kori',
+    img: '/assets/dr-vijayalaxmi-kori.png',
+    specialty: 'Glaucoma & Anterior Segment Specialist (Gold Medalist)',
+    department: 'Glaucoma',
+  },
+  {
+    id: 'dr-aniket-shastri',
+    name: 'Dr Aniket N Shastri',
+    img: '/assets/dr-aniket-shastri.png',
+    specialty: 'Cornea, Phaco & Refractive Surgery',
+    department: 'Cornea',
+  },
+  {
+    id: 'dr-priyanka-rane',
+    name: 'Dr Priyanka Rane',
+    img: '/assets/dr-priyanka-rane.png',
+    specialty: 'Glaucoma and Anterior Segment Surgeon',
+    department: 'Glaucoma',
   },
 ];
 
+const CATEGORIES = [
+  { id: 'all', label: 'All Doctors' },
+  { id: 'leadership', label: 'Featured Specialists' },
+  { id: 'Retina', label: 'Vitreoretinal' },
+  { id: 'Cornea', label: 'Cornea & LASIK' },
+  { id: 'Pediatric', label: 'Pediatric & Squint' },
+  { id: 'Glaucoma', label: 'Glaucoma' },
+];
+
 export default function Doctors() {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const filteredDoctors =
+    selectedCategory === 'all'
+      ? DOCTORS_DATA
+      : selectedCategory === 'leadership'
+      ? DOCTORS_DATA.slice(0, 4)
+      : DOCTORS_DATA.filter((doc) => doc.department === selectedCategory);
+
+  const handleConsultDoctor = (e, doctorName) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const header = document.getElementById('header');
+      const headerHeight = header ? header.offsetHeight : 80;
+      const targetTop = contactSection.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+      // Pre-select doctor in form if select exists
+      setTimeout(() => {
+        const selectEl = document.getElementById('doctor');
+        if (selectEl) {
+          for (let i = 0; i < selectEl.options.length; i++) {
+            if (selectEl.options[i].text.toLowerCase().includes(doctorName.toLowerCase().split(' ')[1] || '')) {
+              selectEl.selectedIndex = i;
+              selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+              break;
+            }
+          }
+        }
+      }, 500);
+    }
+  };
+
   return (
     <section className="doctors-section" id="doctors">
       <div className="container">
         <div className="section-header reveal">
           <span className="section-eyebrow">Our Specialists</span>
-          <h2 className="section-title">Meet Our Expert Team</h2>
+          <h2 className="section-title">Meet Our Medical Team</h2>
           <p className="section-subtitle">
-            Our board-certified ophthalmologists bring decades of combined experience to deliver exceptional eye care.
+            Our board-certified ophthalmologists bring decades of specialized clinical training and surgical excellence from premier Indian and global ophthalmic institutions.
           </p>
+
+          {/* Interactive Category Filter Bar */}
+          <div className="doctor-filter-bar">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                className={`filter-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(cat.id)}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="doctors-grid">
-          {DOCTORS_DATA.map((doc, idx) => (
-            <div className="doctor-card reveal" key={idx}>
-              <div className="doctor-avatar" style={{ background: doc.gradient }}>
-                {doc.initials}
+
+        {/* Doctor Cards Grid — matching the user's reference design */}
+        <div className="doctors-official-grid">
+          {filteredDoctors.map((doc) => (
+            <div className="doctor-official-card reveal" key={doc.id}>
+              <div className="doctor-card-photo-wrapper">
+                <img
+                  src={doc.img}
+                  alt={doc.name}
+                  className="doctor-official-img"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.src = '/assets/logo.png';
+                    e.target.className += ' fallback-img';
+                  }}
+                />
+                <div className="doctor-card-badge">{doc.department}</div>
               </div>
-              <div className="doctor-info">
-                <h3 className="doctor-name">{doc.name}</h3>
-                <span className="doctor-specialty">{doc.specialty}</span>
-                <p className="doctor-desc">{doc.desc}</p>
-                <div className="doctor-tags">
-                  {doc.tags.map((tag, tIdx) => (
-                    <span className="tag" key={tIdx}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="doctor-official-body">
+                <h3 className="doctor-official-name">{doc.name}</h3>
+                <p className="doctor-official-specialty">{doc.specialty}</p>
+                <button
+                  type="button"
+                  className="doctor-consult-btn"
+                  onClick={(e) => handleConsultDoctor(e, doc.name)}
+                >
+                  Book Consultation &rarr;
+                </button>
               </div>
             </div>
           ))}

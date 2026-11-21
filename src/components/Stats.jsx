@@ -3,31 +3,31 @@ import { useState, useEffect, useRef } from 'react';
 const STATS_DATA = [
   {
     icon: '🏆',
-    target: 35,
+    target: 55,
     suffix: '+',
     format: 'standard',
-    label: 'Years of Excellence',
+    label: 'Years of Clinical Excellence (Est. 1967)',
   },
   {
     icon: '👁️',
-    target: 100000,
+    target: 500000,
     suffix: '+',
     format: 'indian',
-    label: 'Patients Served',
+    label: 'Patients Served Across Karnataka & Goa',
   },
   {
     icon: '🩺',
     target: 20,
     suffix: '+',
     format: 'standard',
-    label: 'Eye Specialists',
+    label: 'Ophthalmic Super-Specialists',
   },
   {
-    icon: '📍',
-    target: 5,
-    suffix: '',
+    icon: '🏥',
+    target: 100,
+    suffix: '%',
     format: 'standard',
-    label: 'Locations Across Karnataka',
+    label: 'NABH Accredited Healthcare Standards',
   },
 ];
 

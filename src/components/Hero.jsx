@@ -46,14 +46,14 @@ export default function Hero() {
         <div className="hero-text reveal">
           <div className="hero-badge">
             <span className="badge-dot"></span>
-            Est. 1987 · Karnataka's Premier Eye Care
+            Est. 1967 · NABH Accredited Ophthalmic Super-Specialty Hospital
           </div>
           <h1 className="hero-headline">
             Seeing Clearly.<br />
             <span className="headline-accent">Living Fully.</span>
           </h1>
           <p className="hero-subheadline">
-            Karnataka's premier ophthalmic super-specialty institute — serving patients with compassion and clinical excellence since 1987.
+            Karnataka's premier ophthalmic super-specialty institute & postgraduate DNB training center (Padma Nayanalaya) — founded by Padma Shri Dr. M. M. Joshi, delivering world-class eye care with clinical excellence since 1967.
           </p>
           <div className="hero-ctas">
             <a href="#contact" className="btn btn-amber btn-lg" onClick={(e) => handleScrollTo(e, '#contact')}>
@@ -62,32 +62,32 @@ export default function Hero() {
               </svg>
               Book an Appointment
             </a>
-            <a href="tel:+918362261500" className="btn btn-outline-white btn-lg">
+            <a href="tel:+918362228222" className="btn btn-outline-white btn-lg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                 <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
               </svg>
-              Call Us Now
+              Call 0836-2228222
             </a>
           </div>
           <div className="hero-trust-badges">
             <div className="trust-badge">
-              <span className="trust-num">Est. 1987</span>
+              <span className="trust-num">Est. 1967</span>
               <span className="trust-label">Founded</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
-              <span className="trust-num">35+</span>
-              <span className="trust-label">Years</span>
+              <span className="trust-num">55+</span>
+              <span className="trust-label">Years of Care</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
-              <span className="trust-num">1,00,000+</span>
-              <span className="trust-label">Patients</span>
+              <span className="trust-num">5,00,000+</span>
+              <span className="trust-label">Patients Healed</span>
             </div>
             <div className="trust-divider"></div>
             <div className="trust-badge">
               <span className="trust-num">20+</span>
-              <span className="trust-label">Specialists</span>
+              <span className="trust-label">Eye Specialists</span>
             </div>
           </div>
         </div>

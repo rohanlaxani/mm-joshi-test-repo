@@ -6,7 +6,7 @@ export default function Testimonials() {
           <span className="section-eyebrow">Patient Stories</span>
           <h2 className="section-title">What Our Patients Say</h2>
           <p className="section-subtitle">
-            Thousands of patients trust us with their most precious sense. Here are some of their stories.
+            Thousands of families across Karnataka, Goa, and Maharashtra place their trust in our hands. Here are some of their verified experiences.
           </p>
         </div>
         <div className="testimonials-grid">
@@ -23,15 +23,15 @@ export default function Testimonials() {
             </div>
             <div className="stars">★★★★★</div>
             <p className="testimonial-text">
-              "The cataract surgery changed my life completely. The doctors were professional and caring throughout my treatment journey. I can see clearly for the first time in years!"
+              "I underwent IPCL refractive surgery under the expert guidelines of Dr. Aniket Shastri. Before the procedure I suffered from severe vision problems, but the counselling and clinical care were exceptional. My vision is now completely sharp and clear!"
             </p>
             <div className="testimonial-author">
               <div className="author-avatar" style={{ background: 'linear-gradient(135deg, #1a4fa0, #0ea5e9)' }}>
-                PS
+                MP
               </div>
               <div>
-                <div className="author-name">Priya S.</div>
-                <div className="author-location">📍 Hubballi</div>
+                <div className="author-name">Mahesh P.</div>
+                <div className="author-location">📍 Hubballi, Karnataka</div>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function Testimonials() {
             </div>
             <div className="stars stars-white">★★★★★</div>
             <p className="testimonial-text">
-              "Excellent facility with modern technology. My retinal treatment was successful and the staff made me comfortable at every step. Truly world-class care right here in Karnataka."
+              "Everything about the experience has gone so well, from preliminary diagnostics to surgical recovery. Sincere gratitude to Dr. Shilpa Maled, counsellor Arif Khalander, and the entire nursing staff at MM Joshi Hospital. Truly world-class ophthalmic care right here in Hubli."
             </p>
             <div className="testimonial-author">
               <div
@@ -60,11 +60,11 @@ export default function Testimonials() {
                   border: '2px solid rgba(255,255,255,0.5)',
                 }}
               >
-                RK
+                SK
               </div>
               <div>
-                <div className="author-name">Ramesh K.</div>
-                <div className="author-location">📍 Dharwad</div>
+                <div className="author-name">Sunil K.</div>
+                <div className="author-location">📍 Dharwad, Karnataka</div>
               </div>
             </div>
           </div>
@@ -82,15 +82,15 @@ export default function Testimonials() {
             </div>
             <div className="stars">★★★★★</div>
             <p className="testimonial-text">
-              "I travelled from Belagavi because of MM Joshi's reputation. Worth every bit — world-class eye care close to home. The specialists are outstanding and truly dedicated."
+              "Dr. Aniket Shastri performed cataract surgery on my father when he had severe eye pain and clouded sight. Now he is completely pain-free and reading comfortably without strain. Thank you to the empathetic counsellors and doctors at MM Joshi Institute!"
             </p>
             <div className="testimonial-author">
               <div className="author-avatar" style={{ background: 'linear-gradient(135deg, #7c3aed, #c026d3)' }}>
-                SM
+                BM
               </div>
               <div>
-                <div className="author-name">Sunita M.</div>
-                <div className="author-location">📍 Belagavi</div>
+                <div className="author-name">Basavaraj M.</div>
+                <div className="author-location">📍 Belagavi, Karnataka</div>
               </div>
             </div>
           </div>

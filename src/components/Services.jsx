@@ -2,42 +2,42 @@ const SERVICES_DATA = [
   {
     icon: '🔵',
     title: 'Cataract Surgery',
-    desc: 'Advanced phacoemulsification with premium IOL implants for crystal-clear vision restoration.',
+    desc: 'Advanced micro-incision phacoemulsification with premium multifocal, trifocal and toric IOL implants for high-definition vision restoration.',
   },
   {
     icon: '👁',
-    title: 'Vitreo-Retina',
-    desc: 'Diagnosis and treatment of retinal conditions and vitreous disorders using latest technology.',
-  },
-  {
-    icon: '👶',
-    title: 'Paediatric Ophthalmology',
-    desc: "Specialized care for children's eye conditions and vision development by experienced paediatric specialists.",
-  },
-  {
-    icon: '🌟',
-    title: 'LASIK / Clear Eye Surgery',
-    desc: 'Laser vision correction for permanent freedom from glasses and contact lenses.',
+    title: 'Vitreo-Retina Services',
+    desc: 'Specialized diagnosis and surgical management of diabetic retinopathy, retinal detachments, vitreous hemorrhage, and macular disorders.',
   },
   {
     icon: '🌿',
-    title: 'Cornea Services',
-    desc: 'Corneal transplant, keratoconus treatment and comprehensive surface disorder management.',
+    title: 'Cornea & Refractive Services',
+    desc: 'Corneal transplantation (PK, DALK, DSAEK), keratoconus cross-linking (C3R), dry eye therapy, and anterior surface management.',
+  },
+  {
+    icon: '👶',
+    title: 'Paediatric Ophthalmology & Squint',
+    desc: "Child-friendly eye care, pediatric cataracts, amblyopia (lazy eye) therapy, and precision surgical correction of strabismus (squint).",
   },
   {
     icon: '🔺',
-    title: 'Glaucoma Care',
-    desc: 'Early detection and expert management of glaucoma to preserve precious vision for life.',
+    title: 'Glaucoma Care & Surgery',
+    desc: 'Early computerized visual field screening, OCT-RNFL diagnostics, selective laser trabeculoplasty (SLT), and filtration surgeries.',
+  },
+  {
+    icon: '🌟',
+    title: 'LASIK & Clear Eye Surgery',
+    desc: 'State-of-the-art blade-free laser vision correction and Contoura Vision procedures for permanent independence from spectacles.',
   },
   {
     icon: '🎯',
-    title: 'Oculoplasty',
-    desc: 'Aesthetic and reconstructive eyelid and orbital surgeries for functional and cosmetic outcomes.',
+    title: 'Oculoplasty & Orbital Surgery',
+    desc: 'Aesthetic and reconstructive eyelid surgeries, ptosis correction, tear duct (DCR) procedures, and orbital disease management.',
   },
   {
     icon: '💎',
-    title: 'Contact Lens Clinic',
-    desc: 'Expert fitting and comprehensive evaluation for all types of contact lenses by trained optometrists.',
+    title: 'Contact Lens & Low Vision Clinic',
+    desc: 'Custom fitting for specialty Scleral, Rose K, and RGP lenses alongside optical rehabilitation aids for sub-normal vision patients.',
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Services() {
           <span className="section-eyebrow">Our Specialties</span>
           <h2 className="section-title">Comprehensive Eye Care Services</h2>
           <p className="section-subtitle">
-            From routine check-ups to complex surgical procedures, our specialists deliver world-class ophthalmic care under one roof.
+            From routine vision check-ups to complex microsurgical retinal and corneal procedures, our super-specialists deliver world-class ophthalmic care under one roof.
           </p>
         </div>
         <div className="services-grid">

@@ -38,12 +38,12 @@ export default function AppointmentForm() {
         return '';
       }
       case 'specialty': {
-        if (!value) return 'Please select a specialty.';
+        if (!value) return 'Please select a preferred specialty.';
         return '';
       }
       case 'reason': {
         const val = value.trim();
-        if (!val) return 'Please describe your reason for visit.';
+        if (!val) return 'Please describe your eye concern or symptoms.';
         if (val.length < 10) return 'Please provide more detail (at least 10 characters).';
         return '';
       }
@@ -78,7 +78,6 @@ export default function AppointmentForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Mark all as touched
     const allTouched = {
       fullName: true,
       phone: true,
@@ -102,7 +101,6 @@ export default function AppointmentForm() {
     setErrors(newErrors);
 
     if (!isValid) {
-      // Scroll to first invalid field
       const firstErrorKey = Object.keys(newErrors)[0];
       const el = document.getElementById(firstErrorKey);
       if (el) {
@@ -144,28 +142,28 @@ export default function AppointmentForm() {
             <span className="section-eyebrow">Get In Touch</span>
             <h2 className="section-title">Request an Appointment</h2>
             <p className="section-subtitle">
-              Fill in the form and our team will contact you within 24 hours to confirm your appointment.
+              Fill in the form below and our medical coordination team will contact you within 24 hours to confirm your consultation schedule.
             </p>
             <div className="contact-features">
               <div className="contact-feature">
                 <div className="feature-icon">⏱</div>
                 <div>
-                  <strong>Quick Response</strong>
-                  <p>We respond within 24 hours</p>
+                  <strong>Prompt Confirmation</strong>
+                  <p>Fast response within 24 business hours</p>
                 </div>
               </div>
               <div className="contact-feature">
                 <div className="feature-icon">🔒</div>
                 <div>
                   <strong>100% Confidential</strong>
-                  <p>Your data is never shared</p>
+                  <p>Patient privacy strictly guarded</p>
                 </div>
               </div>
               <div className="contact-feature">
-                <div className="feature-icon">🏥</div>
+                <div className="feature-icon">🩺</div>
                 <div>
-                  <strong>Expert Care</strong>
-                  <p>20+ specialists available</p>
+                  <strong>Super-Specialist Access</strong>
+                  <p>20+ fellowship-trained eye surgeons</p>
                 </div>
               </div>
             </div>
@@ -177,7 +175,7 @@ export default function AppointmentForm() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
               </svg>
-              <strong>Demo Form</strong> &mdash; This is a frontend demonstration. No data is transmitted to any real hospital system.
+              <strong>Frontend Demo Form</strong> &mdash; This is an interactive assessment prototype. In production, this connects to the hospital's secure HMIS/OPD portal.
             </div>
 
             {!submittedRef ? (
@@ -192,7 +190,7 @@ export default function AppointmentForm() {
                       id="fullName"
                       name="fullName"
                       className={getInputClass('fullName')}
-                      placeholder="Enter your full name"
+                      placeholder="Enter patient full name"
                       value={formData.fullName}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -234,7 +232,7 @@ export default function AppointmentForm() {
                     id="email"
                     name="email"
                     className={getInputClass('email')}
-                    placeholder="your@email.com"
+                    placeholder="patient@example.com"
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -258,16 +256,16 @@ export default function AppointmentForm() {
                       onBlur={handleBlur}
                       required
                     >
-                      <option value="">Select a specialty</option>
-                      <option value="cataract">Cataract Surgery</option>
-                      <option value="vitreo-retina">Vitreo-Retina</option>
-                      <option value="paediatric">Paediatric Ophthalmology</option>
-                      <option value="lasik">LASIK / Clear Eye Surgery</option>
-                      <option value="cornea">Cornea Services</option>
-                      <option value="glaucoma">Glaucoma Care</option>
-                      <option value="oculoplasty">Oculoplasty</option>
-                      <option value="contact-lens">Contact Lens Clinic</option>
-                      <option value="general">General Eye Check-Up</option>
+                      <option value="">Select an eye specialty</option>
+                      <option value="cataract">Cataract Surgery (Phaco &amp; Premium IOLs)</option>
+                      <option value="vitreo-retina">Vitreo-Retina &amp; Diabetic Eye Care</option>
+                      <option value="cornea">Cornea Services &amp; Transplants</option>
+                      <option value="pediatric">Paediatric Ophthalmology &amp; Squint</option>
+                      <option value="glaucoma">Glaucoma Diagnostics &amp; Surgery</option>
+                      <option value="lasik">LASIK / Contoura Vision Correction</option>
+                      <option value="oculoplasty">Oculoplasty &amp; Eyelid Surgery</option>
+                      <option value="contact-lens">Specialty Contact Lens Clinic</option>
+                      <option value="general">Comprehensive Eye Check-Up</option>
                     </select>
                     <span className="form-error" id="specialtyError">
                       {errors.specialty}
@@ -276,7 +274,7 @@ export default function AppointmentForm() {
 
                   <div className="form-group">
                     <label htmlFor="doctor" className="form-label">
-                      Preferred Doctor <span className="optional">(Optional)</span>
+                      Preferred Specialist <span className="optional">(Optional)</span>
                     </label>
                     <select
                       id="doctor"
@@ -285,25 +283,28 @@ export default function AppointmentForm() {
                       value={formData.doctor}
                       onChange={handleChange}
                     >
-                      <option value="">No preference</option>
-                      <option value="shetty">Dr. Rohit M. Shetty</option>
-                      <option value="nayak">Dr. Supriya R. Nayak</option>
-                      <option value="patil">Dr. Anil Kumar Patil</option>
-                      <option value="jadhav">Dr. Meena Jadhav</option>
-                      <option value="kulkarni">Dr. Vijay Kulkarni</option>
+                      <option value="">Any available specialist</option>
+                      <option value="dr-shrinivas-joshi">Dr. Srinivas Joshi (Vitreoretinal Specialist)</option>
+                      <option value="dr-krishnaprasad">Dr. R. Krishnaprasad (Pediatric &amp; Glaucoma)</option>
+                      <option value="dr-satyamurthy">Dr. K. V. Satyamurthy (Cornea &amp; Refractive)</option>
+                      <option value="dr-deepti-joshi">Dr. Deepti Joshi (Pediatric &amp; Squint)</option>
+                      <option value="dr-vijayalaxmi-kori">Dr. Vijayalaxmi Kori (Glaucoma Gold Medalist)</option>
+                      <option value="dr-aniket-shastri">Dr. Aniket N. Shastri (Cornea &amp; Phaco)</option>
+                      <option value="dr-guruprasad">Dr. Guruprasad S. Ayachit (Retina &amp; Uvea)</option>
+                      <option value="dr-priyanka-rane">Dr. Priyanka Rane (Glaucoma Surgeon)</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="reason" className="form-label">
-                    Reason for Visit <span className="required">*</span>
+                    Reason for Consultation <span className="required">*</span>
                   </label>
                   <textarea
                     id="reason"
                     name="reason"
                     className={`form-textarea ${getInputClass('reason')}`}
-                    placeholder="Please describe your eye concern or reason for visit..."
+                    placeholder="Briefly describe your vision concern, symptoms, or existing diagnosis..."
                     value={formData.reason}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -319,7 +320,7 @@ export default function AppointmentForm() {
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                     <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
                   </svg>
-                  Your information is confidential and used only for appointment scheduling.
+                  Your information is encrypted and strictly used for hospital appointment scheduling.
                 </div>
 
                 <button
@@ -331,23 +332,23 @@ export default function AppointmentForm() {
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                     <path d="M19 4H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" />
                   </svg>
-                  {isSubmitting ? 'Submitting…' : 'Request Appointment'}
+                  {isSubmitting ? 'Submitting Enquiry…' : 'Submit Appointment Request'}
                 </button>
               </form>
             ) : (
               <div className="form-success" id="formSuccess" style={{ display: 'flex' }}>
                 <div className="success-icon">✅</div>
                 <h3>Appointment Request Received!</h3>
-                <p>Thank you! Your appointment request has been successfully submitted.</p>
+                <p>Thank you! Your enquiry has been registered in our appointment queue.</p>
                 <div className="ref-number" id="refNumber">
-                  Ref. No: {submittedRef}
+                  Tracking Ref: {submittedRef}
                 </div>
                 <p className="success-note">
-                  Our team will contact you within 24 hours to confirm your appointment. For urgent queries, call{' '}
-                  <a href="tel:+918362261500">0836-2261500</a>.
+                  Our patient coordinator will contact you at <strong>{formData.phone}</strong> within 24 hours to confirm your consultation timing. For urgent medical emergencies, please call the 24×7 helpline:{' '}
+                  <a href="tel:+918362228222">0836-2228222</a>.
                 </p>
                 <button type="button" className="btn btn-primary" onClick={handleReset}>
-                  Submit Another Request
+                  Submit Another Enquiry
                 </button>
               </div>
             )}
