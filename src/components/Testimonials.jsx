@@ -1,6 +1,6 @@
 function StarRating({ white }) {
   return (
-    <div className={`star-rating-row ${white ? 'stars-white' : ''}`}>
+    <div className={`star-rating-row ${white ? 'stars-white' : ''}`} aria-label="5 out of 5 stars">
       {[1, 2, 3, 4, 5].map((i) => (
         <svg
           key={i}
