@@ -54,9 +54,9 @@ This repository hosts the official landing page for **M. M. Joshi Eye Institute 
 | **Animated Stats Counter** | Smooth count-up animations powered by `IntersectionObserver` and `requestAnimationFrame` with cubic `easeOut` easing and Indian numbering format (`1,00,000+`). |
 | **8 Super-Specialty Services** | Interactive cards for Cataract, Vitreo-Retina, Paediatrics, LASIK / Clear Eye, Cornea, Glaucoma, Oculoplasty, and Contact Lens Clinic with smooth scroll triggers. |
 | **Why Choose Us Section** | 6 institutional differentiator cards showcasing technological leadership, eye bank activities, research, and community outreach. |
-| **Specialist Profiles** | Doctor profiles with initial badges, qualification summaries, and sub-specialty tags. |
+| **Specialist Profiles** | 12 board-certified ophthalmologists with compact, refined portrait cards, department badges, and category filtering (All, Vitreo-Retina, Cornea & LASIK, Cataract & Phaco, Glaucoma, Pediatric). |
 | **Patient Stories** | High-trust testimonial cards featuring star ratings, location details, and a highlighted featured patient story. |
-| **Locations & Directions** | Dual branch cards (Main Hospital in Vidyanagar & Vision Centre in Deshpande Nagar) with hours, contact numbers, 24x7 emergency badges, and external Google Maps integration. |
+| **Locations & Pinned Map** | Complete 8+ hospital branch network across Karnataka (EyeSiri Flagship, Gokul Road Hubballi, Dharwad, Navanagar, Bagalkot, Koppal, Sankeshwar, Jamakhandi, Raichur) with interactive pinned GPS beacon map, live timings, and one-click directions. |
 | **Appointment Booking** | Controlled form with real-time field validation, inline error handling, loading indicator, and cosmetic reference confirmation receipt (`MMJ-XXXXXX`). |
 | **Back to Top Navigation** | Smooth auto-scrolling to the page header from the footer. |
 

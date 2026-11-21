@@ -186,9 +186,9 @@ input, select, textarea { font-family: inherit; }
 }
 .logo:hover { opacity: 0.88; }
 .logo-img {
-  height: 38px;
+  height: 42px;
   width: auto;
-  max-width: 165px;
+  max-width: 175px;
   object-fit: contain;
   display: block;
 }
@@ -1170,29 +1170,9 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* ============================================================
-   RESPONSIVE — 1024px - 1120px (Small desktop / large tablet)
+   RESPONSIVE — 1080px (Tablet & Mobile Navigation)
    ============================================================ */
-@media (min-width: 961px) and (max-width: 1120px) {
-  .nav-links { gap: 2px; }
-  .nav-link { padding: 6px 8px; font-size: 0.82rem; }
-  .phone-cta { font-size: 0.82rem; }
-  .navbar .btn { padding: 9px 16px; font-size: 0.85rem; }
-}
-
-/* ============================================================
-   RESPONSIVE — 1024px (Tablet Landscape)
-   ============================================================ */
-@media (max-width: 1024px) {
-  .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .footer-brand { grid-column: 1 / -1; }
-  .hero-eye-graphic { opacity: 0.3; right: -100px; }
-}
-
-/* ============================================================
-   RESPONSIVE — 960px (Tablet & Mobile Navigation)
-   ============================================================ */
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   :root { --header-h: 68px; }
 
   /* Nav mobile & tablet */
@@ -1322,7 +1302,7 @@ input, select, textarea { font-family: inherit; }
 
 
 /* ============================================================
-   DOCTOR CARDS — OFFICIAL WEBSITE DESIGN
+   REFINED DOCTORS SECTION & COMPACT CARDS
    ============================================================ */
 .doctor-filter-bar {
   display: flex;
@@ -1330,268 +1310,309 @@ input, select, textarea { font-family: inherit; }
   gap: 8px;
   justify-content: center;
   margin-top: 24px;
+  margin-bottom: 28px;
 }
 .filter-btn {
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: var(--radius-full);
   background: var(--white);
   border: 1px solid var(--border);
   color: var(--text-dark);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 500;
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
 .filter-btn:hover {
-  border-color: #c2185b;
-  color: #c2185b;
-  background: rgba(194, 24, 91, 0.04);
+  border-color: #b82065;
+  color: #b82065;
+  background: rgba(184, 32, 101, 0.04);
 }
 .filter-btn.active {
-  background: #c2185b;
-  border-color: #c2185b;
+  background: #b82065;
+  border-color: #b82065;
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(194, 24, 91, 0.25);
-}
-
-.doctors-official-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.doctor-official-card {
-  background: var(--white);
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  opacity: 1 !important;
-  animation: doctorCardIn 0.3s ease-out forwards;
-}
-@keyframes doctorCardIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  box-shadow: 0 4px 12px rgba(184, 32, 101, 0.22);
 }
 .filter-count {
   font-size: 0.78rem;
-  opacity: 0.85;
-  margin-left: 3px;
+  opacity: 0.9;
+  margin-left: 2px;
   font-weight: 600;
 }
-.doctor-official-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: #c2185b;
+
+/* 4-column compact grid */
+.doctors-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
-.doctor-card-photo-wrapper {
+
+/* Compact, Shorter, Modern Doctor Card */
+.doctor-compact-card {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  display: flex;
+  flex-direction: column;
+  opacity: 1 !important;
+  animation: doctorCardFadeIn 0.3s ease-out forwards;
+}
+@keyframes doctorCardFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.doctor-compact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Shorter Photo Container */
+.doctor-compact-img-wrap {
   position: relative;
   width: 100%;
-  height: 290px;
+  height: 195px;
   background: #f8fafc;
   overflow: hidden;
 }
-.doctor-official-img {
+.doctor-compact-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s ease;
   display: block;
 }
-.doctor-official-card:hover .doctor-official-img {
-  transform: scale(1.04);
+.doctor-compact-card:hover .doctor-compact-img {
+  transform: scale(1.03);
 }
-.doctor-card-badge {
+.doctor-compact-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255, 255, 255, 0.94);
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #c2185b;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #b82065;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(184, 32, 101, 0.15);
 }
-.doctor-official-body {
-  padding: 22px 18px 20px;
+
+/* Refined, Compact Body */
+.doctor-compact-body {
+  padding: 12px 14px 14px;
   text-align: center;
   display: flex;
   flex-direction: column;
   flex: 1;
   justify-content: space-between;
 }
-.doctor-official-name {
-  font-size: 1.15rem;
+.doctor-compact-name {
+  font-size: 0.96rem;
   font-weight: 700;
-  color: #c2185b;
-  margin-bottom: 6px;
+  color: #1e293b;
+  margin-bottom: 3px;
   line-height: 1.3;
 }
-.doctor-official-specialty {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.45;
+.doctor-compact-specialty {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.35;
   font-weight: 400;
-  margin-bottom: 16px;
-  min-height: 40px;
+  margin-bottom: 12px;
+  min-height: 32px;
 }
-.doctor-consult-btn {
+.doctor-compact-btn {
   margin-top: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  background: rgba(194, 24, 91, 0.08);
-  color: #c2185b;
-  font-size: 0.82rem;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: #fdf2f8;
+  color: #b82065;
+  font-size: 0.78rem;
   font-weight: 600;
-  border: 1px solid rgba(194, 24, 91, 0.25);
+  border: 1px solid #f472b6;
   transition: var(--transition-fast);
   cursor: pointer;
   text-decoration: none;
+  width: 100%;
 }
-.doctor-consult-btn:hover {
-  background: #c2185b;
+.doctor-compact-btn:hover {
+  background: #b82065;
   color: var(--white);
-  border-color: #c2185b;
-  box-shadow: 0 4px 12px rgba(194, 24, 91, 0.3);
+  border-color: #b82065;
+  box-shadow: 0 4px 12px rgba(184, 32, 101, 0.25);
 }
 
 /* ============================================================
-   MODERN ANIMATED LOCATIONS & MAP SECTION
+   MODERN LOCATIONS & PINNED MAP EXPERIENCE
    ============================================================ */
-.location-tabs-container {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+.location-tabs-modern-strip {
+  margin-bottom: 24px;
 }
-.location-tab-btn {
+.location-pills-scroll {
   display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+.location-pills-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+.location-pills-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+.location-pill-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 24px;
-  border-radius: var(--radius-lg);
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 9999px;
   background: var(--white);
-  border: 2px solid var(--border);
-  cursor: pointer;
-  transition: var(--transition);
-  text-align: left;
-  box-shadow: var(--shadow-sm);
-}
-.location-tab-btn:hover {
-  border-color: var(--secondary);
-  transform: translateY(-2px);
-}
-.location-tab-btn.active {
-  border-color: var(--primary);
-  background: linear-gradient(135deg, #f0f7ff, #ffffff);
-  box-shadow: var(--shadow-md);
-}
-.tab-pin-icon {
-  font-size: 1.4rem;
-}
-.tab-text {
-  display: flex;
-  flex-direction: column;
-}
-.tab-title {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--dark);
-}
-.tab-badge {
-  font-size: 0.72rem;
-  color: var(--primary);
+  border: 1px solid #e2e8f0;
+  font-size: 0.82rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.location-pill-btn .pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+}
+.location-pill-btn .pill-badge {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 2px 7px;
+  border-radius: 9999px;
+}
+.location-pill-btn:hover {
+  border-color: #1a4fa0;
+  color: #1a4fa0;
+  background: #f8fafc;
+}
+.location-pill-btn.active {
+  background: #1a4fa0;
+  border-color: #1a4fa0;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(26, 79, 160, 0.25);
+}
+.location-pill-btn.active .pill-dot {
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+.location-pill-btn.active .pill-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
 }
 
+/* Two-column Main Wrapper */
 .locations-wrapper-modern {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 32px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 24px;
   align-items: stretch;
+  margin-bottom: 36px;
 }
+
+/* Active Branch Info Card */
 .branch-info-card {
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 36px 32px;
-  box-shadow: var(--shadow-md);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .branch-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
+  gap: 8px;
 }
+.branch-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+.badge-primary { background: #1a4fa0; color: var(--white); }
+.badge-secondary { background: #0ea5e9; color: var(--white); }
+
 .live-status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
+  gap: 6px;
+  font-size: 0.76rem;
   color: #059669;
+  font-weight: 600;
   background: #ecfdf5;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
+  border: 1px solid #a7f3d0;
 }
 .pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #10b981;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  animation: pulseDot 2s infinite;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulseGreen 1.8s infinite;
 }
-@keyframes pulseDot {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+@keyframes pulseGreen {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(0.9); opacity: 1; }
 }
+
 .branch-name {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 4px;
+  margin-bottom: 16px;
+  line-height: 1.35;
 }
-.branch-tagline {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
+
 .branch-details-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 .branch-detail-item {
   display: flex;
-  gap: 14px;
   align-items: flex-start;
-  font-size: 0.9rem;
+  gap: 12px;
+  font-size: 0.85rem;
 }
 .detail-icon {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
-  padding-top: 2px;
+  margin-top: 2px;
 }
 .detail-content strong {
   display: block;
@@ -1601,54 +1622,59 @@ input, select, textarea { font-family: inherit; }
   letter-spacing: 0.04em;
   margin-bottom: 2px;
 }
+.detail-content p {
+  color: var(--dark);
+  line-height: 1.45;
+  margin: 0;
+}
 .copy-address-btn {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--secondary);
   background: none;
   border: none;
+  color: #1a4fa0;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0;
+  margin-top: 4px;
   cursor: pointer;
   text-decoration: underline;
-  padding: 0;
 }
-.branch-phones {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
+.copy-address-btn:hover { color: #0ea5e9; }
+
 .phone-link-active {
-  color: var(--primary);
+  color: #1a4fa0;
   font-weight: 700;
-  font-size: 1rem;
+  text-decoration: none;
+  font-size: 0.95rem;
 }
-.phone-link-active:hover {
-  color: var(--secondary);
-}
+.phone-link-active:hover { color: #0ea5e9; text-decoration: underline; }
 .phone-separator {
   color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-left: 6px;
 }
+
 .emergency-highlight {
-  background: rgba(239, 68, 68, 0.06);
-  padding: 12px 14px;
-  border-radius: var(--radius-md);
-  border-left: 3px solid #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.emergency-text {
+  color: #dc2626 !important;
+  font-weight: 600;
 }
 
 .branch-facilities-strip {
-  background: var(--light-bg);
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
 }
 .facilities-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   margin-bottom: 8px;
 }
@@ -1658,135 +1684,347 @@ input, select, textarea { font-family: inherit; }
   gap: 6px;
 }
 .facility-chip {
-  font-size: 0.75rem;
-  color: var(--primary);
+  font-size: 0.74rem;
+  color: #1a4fa0;
   font-weight: 500;
-  background: var(--white);
-  padding: 3px 10px;
+  background: #f0f7ff;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(26, 79, 160, 0.15);
+  border: 1px solid #bae6fd;
 }
 
 .branch-actions-row {
+  margin-top: auto;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
+.branch-actions-row .btn {
+  padding: 9px 18px;
+  font-size: 0.84rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
-/* Interactive Animated Map Display */
+/* ============================================================
+   PINNED INTERACTIVE MAP FRAME
+   ============================================================ */
 .interactive-map-frame {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: 16px;
   overflow: hidden;
-  min-height: 490px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
+  min-height: 480px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
   background: #0f172a;
 }
 .map-iframe {
   width: 100%;
   height: 100%;
-  min-height: 490px;
+  min-height: 480px;
   border: none;
   display: block;
   filter: saturate(1.05);
 }
-.map-radar-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 5;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(10px);
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: var(--white);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-.radar-circle-outer {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid #38bdf8;
-  position: absolute;
-  left: 12px;
-  animation: radarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-.radar-core {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
-}
-@keyframes radarPing {
-  0% { transform: scale(0.6); opacity: 1; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-.radar-text {
-  margin-left: 12px;
-}
 
-.map-glass-hud {
+/* Telemetry Top Bar */
+.map-telemetry-bar {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  z-index: 5;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 14px 20px;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 6;
+  background: rgba(15, 23, 42, 0.90);
+  backdrop-filter: blur(10px);
+  padding: 7px 14px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.telemetry-pin-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.telemetry-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseGreen 1.5s infinite;
+}
+.telemetry-text {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+}
+.telemetry-text strong {
+  color: #38bdf8;
+}
+.telemetry-coords {
+  color: #94a3b8;
+  font-family: monospace;
+  font-size: 0.72rem;
+}
+
+/* Explicit Visual Pinned Location Marker Overlay */
+.map-pinned-marker-anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pin-icon-wrap {
+  animation: pinFloat 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+}
+.pin-svg {
+  filter: drop-shadow(0 2px 4px rgba(184, 32, 101, 0.6));
+}
+@keyframes pinFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* Ripple waves emanating from pin ground tip */
+.pin-pulse-wave {
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #b82065;
+  pointer-events: none;
+}
+.pin-pulse-wave.ring-1 {
+  width: 24px;
+  height: 12px;
+  animation: mapWave 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.pin-pulse-wave.ring-2 {
+  width: 44px;
+  height: 22px;
+  animation: mapWave 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite 0.8s;
+}
+.pin-pulse-wave.ring-3 {
+  width: 64px;
+  height: 32px;
+  animation: mapWave 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite 1.6s;
+}
+@keyframes mapWave {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+/* Bottom Glass HUD */
+.map-glass-hud {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 6;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
+.hud-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.hud-pin-icon { font-size: 1rem; }
 .hud-title {
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--dark);
-  display: block;
 }
 .hud-sub {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 340px;
+  max-width: 320px;
 }
 .hud-action-btn {
-  background: var(--primary);
-  color: white;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
+  background: #1a4fa0;
+  color: var(--white);
+  padding: 7px 15px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
   transition: var(--transition-fast);
   text-decoration: none;
+  flex-shrink: 0;
 }
 .hud-action-btn:hover {
-  background: var(--secondary);
+  background: #0ea5e9;
   transform: translateY(-1px);
 }
 
-/* Responsive updates for doctors and map */
-@media (max-width: 1024px) {
-  .doctors-official-grid {
+/* ============================================================
+   ALL 8+ BRANCHES NETWORK GRID
+   ============================================================ */
+.all-branches-network-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+}
+.network-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.network-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.network-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.network-branches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.network-branch-card {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.network-branch-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+.network-branch-card.current-active {
+  border-color: #1a4fa0;
+  background: #f0f7ff;
+  box-shadow: 0 4px 14px rgba(26, 79, 160, 0.12);
+}
+.card-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.network-card-city {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #1a4fa0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.network-card-badge {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-weight: 500;
+}
+.network-card-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.network-card-address {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 32px;
+}
+.network-card-phone {
+  margin-bottom: 12px;
+}
+.network-card-phone a {
+  color: #1a4fa0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.network-card-phone a:hover { text-decoration: underline; }
+
+.network-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+.network-view-pin-btn {
+  background: #1a4fa0;
+  color: var(--white);
+  border: none;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.network-view-pin-btn:hover { background: #0ea5e9; }
+.network-branch-card.current-active .network-view-pin-btn {
+  background: #059669;
+}
+.network-directions-link {
+  color: #64748b;
+  font-size: 0.74rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.network-directions-link:hover { color: #1a4fa0; }
+
+/* ============================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   ============================================================ */
+@media (max-width: 1120px) {
+  .doctors-compact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .network-branches-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 1024px) {
   .locations-wrapper-modern {
     grid-template-columns: 1fr;
   }
@@ -1796,14 +2034,20 @@ input, select, textarea { font-family: inherit; }
   .map-iframe {
     min-height: 420px;
   }
+  .doctors-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 600px) {
-  .doctors-official-grid {
+@media (max-width: 640px) {
+  .doctors-compact-grid {
     grid-template-columns: 1fr;
   }
-  .doctor-card-photo-wrapper {
-    height: 320px;
+  .doctor-compact-img-wrap {
+    height: 220px;
+  }
+  .network-branches-grid {
+    grid-template-columns: 1fr;
   }
   .map-glass-hud {
     flex-direction: column;
@@ -1815,5 +2059,8 @@ input, select, textarea { font-family: inherit; }
   .hud-action-btn {
     width: 100%;
     text-align: center;
+  }
+  .telemetry-coords {
+    display: none;
   }
 }

@@ -50,7 +50,7 @@ export default function Header() {
     };
 
     const handleResize = () => {
-      if (window.innerWidth > 960 && menuOpen) {
+      if (window.innerWidth > 1080 && menuOpen) {
         setMenuOpen(false);
       }
     };
